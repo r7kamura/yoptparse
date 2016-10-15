@@ -1,41 +1,60 @@
 # Yoptparse
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/yoptparse`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Command line option parsing with [YARD](http://yardoc.org/) and optparse.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'yoptparse'
+gem "yoptparse"
 ```
 
 And then execute:
 
-    $ bundle
+```bash
+bundle
+```
 
 Or install it yourself as:
 
-    $ gem install yoptparse
+```bash
+gem install yoptparse
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+Inherit `Yoptparse::Command` and define `#initialize` method with YARD style documentation.
 
-## Development
+```ruby
+class ExampleCommand < Yoptparse::Command
+  # Usage: somemoji extract [options]
+  # @param destination [String] Directory path to put extracted emoji images
+  # @param format [String] png or svg (default: png)
+  # @param provider [String] Emoji provider name (apple, emoji_one, noto or twemoji)
+  # @param quiet [Boolean] Disable log output
+  # @param size [Integer] Image size
+  def initialize(destination:, format: "png", provider:, quiet: false, size: 64)
+    @destination = destination
+    @format = format
+    @provider = provider
+    @quiet = quiet
+    @size = size
+  end
+end
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+puts ExampleCommand.to_option_parser
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```
+Usage: somemoji extract [options]
+        --destination=               Directory path to put extracted emoji images (required)
+        --provider=                  Emoji provider name (apple, emoji_one, noto or twemoji) (required)
+        --format=                    png or svg (default: png)
+        --quiet                      Disable log output
+        --size=                      Image size
+```
 
-## Contributing
+### Documentation
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/yoptparse.
-
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
+See API documentation at http://www.rubydoc.info/github/r7kamura/yoptparse.
