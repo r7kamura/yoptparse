@@ -46,7 +46,13 @@ class ExampleCommand < Yoptparse::Command
     @size = size
   end
 end
+```
 
+### Yoptparse::Command.to_option_parser
+
+Returns an `OptionParser` instance.
+
+```ruby
 puts ExampleCommand.to_option_parser
 ```
 
@@ -57,6 +63,18 @@ Usage: somemoji extract [options]
         --format=                    png or svg (default: png)
         --quiet                      Disable log output
         --size=                      Image size
+```
+
+### Yoptparse::Command.parse
+
+Create a new instance from ARGV parse result.
+
+```ruby
+p SomemojiExtractCommand.parse(ARGV)
+```
+
+```
+#<SomemojiExtractCommand:0x007ff6e41b8ea0 @destination="/path/to/emoji", @format="png", @provider="twemoji", @quiet=false, @size=64>
 ```
 
 ### Documentation
