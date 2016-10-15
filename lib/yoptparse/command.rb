@@ -7,11 +7,11 @@ module Yoptparse
       end
 
       # @param argv [Array<String>]
-      # @return [Hash{Symbol => Object}]
+      # @return [Yoptparse::Command]
       def parse(argv)
         option_parser, result_store = generate_option_parser_and_result_store
         option_parser.parse(argv)
-        result_store
+        new(result_store)
       end
 
       # @return [OptionParser]
