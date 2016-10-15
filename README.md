@@ -1,5 +1,9 @@
 # Yoptparse
 
+[![Gem Version](https://badge.fury.io/rb/yoptparse.svg)](https://badge.fury.io/rb/yoptparse)
+[![Documentation](http://img.shields.io/badge/docs-rdoc.info-blue.svg)](http://www.rubydoc.info/github/r7kamura/yoptparse)
+[![CircleCI](https://circleci.com/gh/r7kamura/yoptparse.svg?style=svg)](https://circleci.com/gh/r7kamura/yoptparse)
+
 Command line option parsing with [YARD](http://yardoc.org/) and optparse.
 
 ## Installation
