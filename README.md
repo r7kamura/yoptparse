@@ -32,7 +32,7 @@ Inherit `Yoptparse::Command` and define `#initialize` method with YARD style doc
 
 ```ruby
 class ExampleCommand < Yoptparse::Command
-  # Usage: somemoji extract [options]
+  # Usage example-command [options]
   # @param destination [String] Directory path to put extracted emoji images
   # @param format [String] png or svg (default: png)
   # @param provider [String] Emoji provider name (apple, emoji_one, noto or twemoji)
@@ -57,7 +57,7 @@ puts ExampleCommand.to_option_parser
 ```
 
 ```
-Usage: somemoji extract [options]
+Usage: example-command [options]
         --destination=               Directory path to put extracted emoji images (required)
         --provider=                  Emoji provider name (apple, emoji_one, noto or twemoji) (required)
         --format=                    png or svg (default: png)
@@ -70,11 +70,11 @@ Usage: somemoji extract [options]
 Create a new instance from ARGV parse result.
 
 ```ruby
-p SomemojiExtractCommand.parse(ARGV)
+p ExampleCommand.parse(ARGV)
 ```
 
 ```
-#<SomemojiExtractCommand:0x007ff6e41b8ea0 @destination="/path/to/emoji", @format="png", @provider="twemoji", @quiet=false, @size=64>
+#<ExampleCommand:0x007ff6e41b8ea0 @destination="/path/to/emoji", @format="png", @provider="twemoji", @quiet=false, @size=64>
 ```
 
 ### Documentation
