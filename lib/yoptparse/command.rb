@@ -1,7 +1,7 @@
 module Yoptparse
   class Command
     class << self
-      # @return [String]
+      # @return [String, nil]
       def banner
         string = ::YARD::Registry.at("#{self}#initialize").docstring
         unless string.empty?
