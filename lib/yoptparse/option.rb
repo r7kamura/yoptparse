@@ -21,23 +21,27 @@ module Yoptparse
 
     # @return [Class]
     def type_class
-      case tag.type
-      when "Array"
-        ::Array
-      when "Float"
-        ::Float
-      when "Integer"
-        ::Integer
-      when "Numeric"
-        ::Numeric
-      when "OptionParser::DecimalInteger"
-        ::OptionParser::DecimalInteger
-      when "OptionParser::DecimalNumeric"
-        ::OptionParser::DecimalNumeric
-      when "OptionParser::OctalInteger"
-        ::OptionParser::OctalInteger
-      when "String"
-        ::String
+      if tag
+        case tag.type
+        when "Array"
+          ::Array
+        when "Float"
+          ::Float
+        when "Integer"
+          ::Integer
+        when "Numeric"
+          ::Numeric
+        when "OptionParser::DecimalInteger"
+          ::OptionParser::DecimalInteger
+        when "OptionParser::DecimalNumeric"
+          ::OptionParser::DecimalNumeric
+        when "OptionParser::OctalInteger"
+          ::OptionParser::OctalInteger
+        when "String"
+          ::String
+        else
+          ::Object
+        end
       else
         ::Object
       end
@@ -47,7 +51,11 @@ module Yoptparse
 
     # @return [Boolean]
     def boolean?
-      tag.type == "Boolean"
+      if tag
+        tag.type == "Boolean"
+      else
+        false
+      end
     end
 
     # @return [String]

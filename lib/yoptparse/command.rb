@@ -3,7 +3,10 @@ module Yoptparse
     class << self
       # @return [String]
       def banner
-        ::YARD::Registry.at("#{self}#initialize").docstring
+        string = ::YARD::Registry.at("#{self}#initialize").docstring
+        unless string.empty?
+          string
+        end
       end
 
       # @param argv [Array<String>]
