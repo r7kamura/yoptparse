@@ -1,5 +1,8 @@
 # Yoptparse
 
+> [!NOTE]
+> This project is archived because I no longer actively use it, and there seems to be no recent activity from other users either. If you are still using it and would like to take over maintenance, please contact me somewhere.
+
 [![Gem Version](https://badge.fury.io/rb/yoptparse.svg)](https://badge.fury.io/rb/yoptparse)
 [![Documentation](http://img.shields.io/badge/docs-rdoc.info-blue.svg)](http://www.rubydoc.info/github/r7kamura/yoptparse)
 [![CircleCI](https://circleci.com/gh/r7kamura/yoptparse.svg?style=svg)](https://circleci.com/gh/r7kamura/yoptparse)
